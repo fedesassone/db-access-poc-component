@@ -1,0 +1,13 @@
+{
+  "title": "Db Access POC",
+  "description": "Component that resolves basic queries to local DB",
+  "credentials": {
+    "fields": {
+      "name": {
+        "label": "My API Key",
+        "required": true,
+        "viewClass": "TextFieldView"
+      }
+    }
+  }
+}
