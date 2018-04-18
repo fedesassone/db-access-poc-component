@@ -1,2 +1,11 @@
 node_modules
+.Ds_Store
+.editorconfig
+.gitattributes
+.idea
+.travis.yml
+package-lock.json
+package.json
+.gradle
 coverage
+build

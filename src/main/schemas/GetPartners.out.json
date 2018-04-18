@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "partners": {
+      "type": "array",
+      "required": true,
+      "title": "Partners",
+      "properties": {
+
+      }
+    }
+  }
+}
