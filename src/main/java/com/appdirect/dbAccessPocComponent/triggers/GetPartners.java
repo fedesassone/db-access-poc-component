@@ -13,7 +13,6 @@ import io.elastic.api.Message;
 import io.elastic.api.Module;
 
 /**
- *
  * Trigger to get partners from db.
  */
 public class GetPartners implements Module {
