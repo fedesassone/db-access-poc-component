@@ -5,7 +5,6 @@ import java.io.UnsupportedEncodingException;
 
 import javax.json.JsonArray;
 import javax.json.JsonObject;
-import javax.json.JsonString;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
@@ -28,7 +27,7 @@ public class HttpClientUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(HttpClientUtils.class);
 
-    private static final String DB_API_BASE_URL = "https://15af3780.ngrok.io";
+    private static final String DB_API_BASE_URL = "https://8d51bf78.ngrok.io";
 
     public static JsonObject getSingle(final String path,
                                     final JsonObject configuration) {
@@ -77,12 +76,16 @@ public class HttpClientUtils {
         request.addHeader(HTTP.CONTENT_TYPE, "application/json");
 
         // access the value of the authorization field defined in credentials section of component.json
+      /*
         final JsonString apiKey = configuration.getJsonString("authorization");
         if (apiKey == null) {
             throw new IllegalStateException("authorization is required");
         }
 
         request.addHeader(new BasicHeader("Authorization", apiKey.getString()));
+       */
+
+        request.addHeader(new BasicHeader("Authorization", "Basic YWRtaW46YWRtaW4="));
 
         final CloseableHttpClient httpClient = HttpClients.createDefault();
 
