@@ -3,10 +3,31 @@
   "description": "Component that resolves basic queries to local DB",
   "credentials": {
     "fields": {
-      "name": {
-        "label": "My API Key",
+      "authorization": {
+        "label": "Authorization",
         "required": true,
-        "viewClass": "TextFieldView"
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Please use: <b>Basic YWRtaW46YWRtaW4=</b> for basic authorization."
+      }
+    }
+  },
+  "triggers": {
+    "GetPartners": {
+      "main": "com.appdirect.dbAccessPocComponent.triggers.GetPartners",
+      "type": "polling",
+      "title": "Get Partners(HttpClient)",
+      "description": "Retrieves partners from the DB using Apache HttpClient",
+      "metadata": {
+        "out": "./schemas/getPartners.out.json"
+      }
+    },
+    "GetPartnersJaxRs": {
+      "main": "com.appdirect.dbAccessPocComponent.triggers.GetPartnersJaxRs",
+      "type": "polling",
+      "title": "Get Partners(JAX-RS)",
+      "description": "Retrieves partners from the DB using Apache HttpClient",
+      "metadata": {
+        "out": "./schemas/getPartners.out.json"
       }
     }
   }

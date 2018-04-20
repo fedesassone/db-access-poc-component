@@ -30,10 +30,10 @@ public class GetPartnersJaxRs implements Module {
     public void execute(final ExecutionParameters parameters) {
         final JsonObject configuration = parameters.getConfiguration();
 
-        // access the value of the apiKey field defined in credentials section of component.json
-        final JsonString apiKey = configuration.getJsonString("apiKey");
-        if (apiKey == null) {
-            throw new IllegalStateException("apiKey is required");
+        // access the value of the authorization field defined in credentials section of component.json
+        final JsonString authorization = configuration.getJsonString("authorization");
+        if (authorization == null) {
+            throw new IllegalStateException("authorization is required");
         }
 
       logger.info("About to retrieve partners");
@@ -42,7 +42,7 @@ public class GetPartnersJaxRs implements Module {
                 .target(Constants.DB_API_BASE_URL)
                 .path(Constants.SELECT_ALL_PARTNERS_PATH)
                 .request(MediaType.APPLICATION_JSON_TYPE)
-                .header(Constants.API_KEY_HEADER, apiKey.getString())
+                .header(Constants.AUTHORIZATION_HEADER, authorization.getString())
                 .get(JsonArray.class);
 
       logger.info("Got {} partners", partners.size());

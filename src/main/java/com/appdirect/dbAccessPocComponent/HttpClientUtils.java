@@ -76,13 +76,13 @@ public class HttpClientUtils {
 
         request.addHeader(HTTP.CONTENT_TYPE, "application/json");
 
-        // access the value of the apiKey field defined in credentials section of component.json
-        final JsonString apiKey = configuration.getJsonString("apiKey");
+        // access the value of the authorization field defined in credentials section of component.json
+        final JsonString apiKey = configuration.getJsonString("authorization");
         if (apiKey == null) {
-            throw new IllegalStateException("apiKey is required");
+            throw new IllegalStateException("authorization is required");
         }
 
-        request.addHeader(new BasicHeader("api-key", apiKey.getString()));
+        request.addHeader(new BasicHeader("Authorization", apiKey.getString()));
 
         final CloseableHttpClient httpClient = HttpClients.createDefault();
 
