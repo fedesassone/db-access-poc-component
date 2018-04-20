@@ -1,7 +1,6 @@
 package com.appdirect.dbAccessPocComponent.triggers;
 
 import javax.json.Json;
-import javax.json.JsonArray;
 import javax.json.JsonObject;
 
 import org.slf4j.Logger;
@@ -28,9 +27,9 @@ public class GetPartners implements Module {
 
     logger.info("About to retrieve partners");
 
-    final String path = "/partners";
+    final String path = "/api/v1/admin/docusignPartners";
 
-    final JsonArray partners = HttpClientUtils.getMany(path, configuration);
+    final JsonObject partners = HttpClientUtils.getSingle(path, configuration);
 
     logger.info("Got {} partners", partners.size());
 
