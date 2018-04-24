@@ -3,11 +3,65 @@
   "description": "Component that resolves basic queries to local DB",
   "credentials": {
     "fields": {
-      "authorization": {
-        "label": "Authorization",
+      "host": {
+        "label": "Host",
         "required": true,
         "viewClass": "TextFieldWithNoteView",
-        "note": "Please use: <b>Basic YWRtaW46YWRtaW4=</b> for basic authorization."
+        "note": "Host of the DB"
+      },
+      "port": {
+        "label": "Port",
+        "required": true,
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Port in which to connect"
+      },
+      "dbName": {
+        "label": "DB Name",
+        "required": true,
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Nambe of the DB you want to connect to"
+      },
+      "user": {
+        "label": "User",
+        "required": true,
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Credentials: user"
+      },
+      "password": {
+        "label": "Password",
+        "required": true,
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Credentials: password"
+      }
+    },
+    "verifier": "com.appdirect.dbAccessPocComponent.DbCredentialsVerifier"
+  },
+  "actions": {
+    "Insert": {
+      "main": "com.appdirect.dbAccessPocComponent.actions.Insert",
+      "title": "Insert",
+      "description": "Inserts data into DB",
+      "metadata": {
+        "in": "./schemas/insert.in.json",
+        "out": "./schemas/insert.out.json"
+      }
+    },
+    "Select": {
+      "main": "com.appdirect.dbAccessPocComponent.actions.Select",
+      "title": "Select",
+      "description": "Selects data from DB",
+      "metadata": {
+        "in": "./schemas/select.in.json",
+        "out": "./schemas/select.out.json"
+      }
+    },
+    "Delete": {
+      "main": "com.appdirect.dbAccessPocComponent.actions.Delete",
+      "title": "Delete",
+      "description": "Delete data from DB",
+      "metadata": {
+        "in": "./schemas/delete.in.json",
+        "out": "./schemas/delete.out.json"
       }
     }
   },
