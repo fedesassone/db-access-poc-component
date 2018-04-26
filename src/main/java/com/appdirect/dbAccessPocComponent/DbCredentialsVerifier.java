@@ -29,11 +29,11 @@ public class DbCredentialsVerifier implements CredentialsVerifier {
     public void verify(final JsonObject configuration) throws InvalidCredentialsException {
         logger.info("Testing connection to DB");
         try {
-          final String host = configuration.getJsonString("host").toString();
-          final String port = configuration.getJsonString("port").toString();
-          final String dbName = configuration.getJsonString("dbName").toString();
-          final String user = configuration.getJsonString("user").toString();
-          final String password = configuration.getJsonString("password").toString();
+          final String host = configuration.getString("host");
+          final String port = configuration.getString("port");
+          final String dbName = configuration.getString("dbName");
+          final String user = configuration.getString("user");
+          final String password = configuration.getString("password");
 
           Connection connection = DriverManager.getConnection(BASE_PATH + host + PORT_SEPARATOR + port + DB_SEPARATOR + dbName, user, password);
 

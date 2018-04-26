@@ -9,3 +9,4 @@ package.json
 .gradle
 coverage
 build
+out
